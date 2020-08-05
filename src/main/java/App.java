@@ -5,7 +5,6 @@ import animals.Penguin;
 import animals.Shark;
 import animals.Sparrow;
 import animals.Tiger;
-
 import java.util.List;
 
 public class App {
