@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Zoo {
-    private List<animals.Aviary> aviaries = new ArrayList<>();
+    private List<Aviary> aviaries = new ArrayList<>();
 
-    public void addAviary(animals.Aviary aviary){
+    public void addAviary(Aviary aviary){
         aviaries.add(aviary);
     }
 
-    public List<animals.Aviary> getAviaries() {
+    public List<Aviary> getAviaries() {
         return aviaries;
     }
 
-    public void setAviaries(List<animals.Aviary> aviaries) {
+    public void setAviaries(List<Aviary> aviaries) {
         this.aviaries = aviaries;
     }
 }
