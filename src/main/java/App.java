@@ -1,5 +1,4 @@
 import animals.*;
-
 import java.util.List;
 
 public class App {
@@ -11,21 +10,22 @@ public class App {
         birdAviary.addAnimal(new Sparrow());
         Aviary<Animal> allAnimalsAviary = new Aviary<>();
         allAnimalsAviary.addAnimal(new Tiger());
-        List<Bird> birdAviaryAnimals = birdAviary.getAnimals();
-        for (Bird animal: birdAviaryAnimals){
-            animal.eat();
-        }
-        List<Fish> fishAviaryAnimals = fishAviary.getAnimals();
-        for (Fish fish : fishAviaryAnimals){
-            fish.eat();
-        }
+        List<Bird> birds = birdAviary.getAnimals();
+        List<Fish> fish = fishAviary.getAnimals();
         List<Animal> animals = allAnimalsAviary.getAnimals();
-        for (Animal animal : animals){
-            animal.eat();
-        }
+        foodForAnimals(birds);
+        foodForAnimals(fish);
+        foodForAnimals(animals);
         Zoo zoo = new Zoo();
         zoo.addAviary(allAnimalsAviary);
         zoo.addAviary(birdAviary);
         zoo.addAviary(fishAviary);
     }
+
+    private static void foodForAnimals (List<? extends Animal> animals) {
+        for (Animal animal : animals) {
+            animal.eat();
+        }
+    }
+
 }
