@@ -1,4 +1,11 @@
-import animals.*;
+import animals.Animal;
+import animals.Bird;
+import animals.Fish;
+import animals.Penguin;
+import animals.Shark;
+import animals.Sparrow;
+import animals.Tiger;
+
 import java.util.List;
 
 public class App {
@@ -22,7 +29,7 @@ public class App {
         zoo.addAviary(fishAviary);
     }
 
-    private static void foodForAnimals (List<? extends Animal> animals) {
+    private static void foodForAnimals(List<? extends Animal> animals) {
         for (Animal animal : animals) {
             animal.eat();
         }

@@ -1,4 +1,4 @@
-package animals;
+import animals.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 public class Aviary<A extends Animal> {
     private List<A> animals = new ArrayList<>();
 
-    public void addAnimal(A animal){
+    public void addAnimal(A animal) {
         animals.add(animal);
     }
 
