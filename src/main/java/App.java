@@ -39,7 +39,7 @@ public class App {
         }
     }
 
-    private static void swim(List<? extends Fish> fish) {
+    private static void swim(List<Fish> fish) {
         for (Fish animal : fish) {
             animal.swim();
         }
