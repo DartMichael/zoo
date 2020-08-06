@@ -1,7 +1,15 @@
 package animals;
 
-public abstract class Animal implements SameAbilities {
+public abstract class Animal {
     private String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public void eat() {
+        System.out.println("Do not look at me! I am eating!");
+    }
 
     public String getName() {
         return name;

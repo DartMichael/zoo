@@ -1,8 +1,7 @@
-import animals.Animal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aviary<A extends Animal> {
+public class Aviary<A> {
     private List<A> animals = new ArrayList<>();
 
     public void addAnimal(A animal) {
