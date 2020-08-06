@@ -17,6 +17,8 @@ public class App {
         birdAviary.addAnimal(new Sparrow("sparrow"));
         Aviary<Animal> allAnimalsAviary = new Aviary<>();
         allAnimalsAviary.addAnimal(new Tiger("tiger"));
+        Aviary<Flyable> flyableAviary = new Aviary<>();
+        flyableAviary.addFlyableAnimal(new Sparrow(""));
         List<Bird> birds = birdAviary.getAnimals();
         List<Fish> fish = fishAviary.getAnimals();
         List<Animal> animals = allAnimalsAviary.getAnimals();
@@ -27,15 +29,14 @@ public class App {
         zoo.addAviary(allAnimalsAviary);
         zoo.addAviary(birdAviary);
         zoo.addAviary(fishAviary);
-        fly(List.of(new Penguin("penguin"), new Sparrow("sparrow")));
+        List<Flyable> flyBirds = flyableAviary.getFlyableAviary();
+        fly(flyBirds);
         swim(List.of(new Shark("shark")));
     }
 
-    private static void fly(List<Bird> birds) {
-        for (Bird bird : birds) {
-            if (bird instanceof Flyable) {
-                ((Flyable) bird).fly();
-            }
+    private static void fly(List<Flyable> flyable) {
+        for (Flyable animal : flyable) {
+            animal.fly();
         }
     }
 
