@@ -5,43 +5,51 @@ import animals.Flyable;
 import animals.Penguin;
 import animals.Shark;
 import animals.Sparrow;
+import animals.Swimmable;
 import animals.Tiger;
 import java.util.List;
 
 public class App {
     public static void main(String[] args) {
+        Shark shark = new Shark("shark");
+        Sparrow sparrow = new Sparrow("sparrow");
+        Tiger tiger = new Tiger("tiger");
+        Penguin penguin = new Penguin("penguin");
+        Aviary<Animal> animalAviary = new Aviary<>();
+        animalAviary.addAnimal(penguin);
+        animalAviary.addAnimal(sparrow);
+        animalAviary.addAnimal(tiger);
+        animalAviary.addAnimal(shark);
         Aviary<Fish> fishAviary = new Aviary<>();
-        fishAviary.addAnimal(new Shark("shark"));
+        fishAviary.addAnimal(shark);
         Aviary<Bird> birdAviary = new Aviary<>();
-        birdAviary.addAnimal(new Penguin("penguin"));
-        birdAviary.addAnimal(new Sparrow("sparrow"));
-        Aviary<Animal> allAnimalsAviary = new Aviary<>();
-        allAnimalsAviary.addAnimal(new Tiger("tiger"));
-        Aviary<Flyable> flyableAviary = new Aviary<>();
-        flyableAviary.addFlyableAnimal(new Sparrow(""));
-        List<Bird> birds = birdAviary.getAnimals();
-        List<Fish> fish = fishAviary.getAnimals();
-        List<Animal> animals = allAnimalsAviary.getAnimals();
-        foodForAnimals(birds);
-        foodForAnimals(fish);
+        birdAviary.addAnimal(penguin);
+        birdAviary.addAnimal(sparrow);
+        Aviary<Flyable> flyingAnimalsAviary = new Aviary<>();
+        flyingAnimalsAviary.addAnimal(sparrow);
+        List<Flyable> flyingAnimals = flyingAnimalsAviary.getAnimals();
+        Aviary<Swimmable> swimmingAnimalsAviary = new Aviary<>();
+        swimmingAnimalsAviary.addAnimal(shark);
+        swimmingAnimalsAviary.addAnimal(penguin);
+        List<Swimmable> swimmingAnimals = swimmingAnimalsAviary.getAnimals();
+        fly(flyingAnimals);
+        swim(swimmingAnimals);
+        List<Animal> animals = animalAviary.getAnimals();
         foodForAnimals(animals);
         Zoo zoo = new Zoo();
-        zoo.addAviary(allAnimalsAviary);
+        zoo.addAviary(animalAviary);
         zoo.addAviary(birdAviary);
         zoo.addAviary(fishAviary);
-        List<Flyable> flyBirds = flyableAviary.getFlyableAviary();
-        fly(flyBirds);
-        swim(List.of(new Shark("shark")));
     }
 
-    private static void fly(List<Flyable> flyable) {
-        for (Flyable animal : flyable) {
+    private static void fly(List<Flyable> animals) {
+        for (Flyable animal : animals) {
             animal.fly();
         }
     }
 
-    private static void swim(List<Fish> fish) {
-        for (Fish animal : fish) {
+    private static void swim(List<Swimmable> animals) {
+        for (Swimmable animal : animals) {
             animal.swim();
         }
     }
